@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Interactive Ant Colony Algorithm</title>
+    <link rel="stylesheet" href="null_style.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div class="algo-head">
+        <div class="algo-head__text">Муравьиный алгоритм. Базовый.</div>
+    </div>
+    <div class="algo-params">
+        <div class="algo-params__algo">
+            <form action="" name="algo_params">
+                <div class="algo-params__param"><span>Ввод параметров алгоритма</span><br></div>
+                <div class="algo-params__param"><span>Размер поля [2-25]</span><input type="number" name="field_size" value="3"></div>
+                <div class="algo-params__param"><span>Количество муравьев на итерацию [1-10]</span><input type="number" name="ants_count" value="5"></div>
+                <div class="algo-params__param"><span>Количество итераций [1-25]</span><input type="number" name="iterations_count" value="3"></div>
+                <div class="algo-params__param"><span>ALPHA - константа [0.01-1]</span><input type="number" name="alpha" value="1"></div>
+                <div class="algo-params__param"><span>BETA - константа [0.01-1]</span><input type="number" name="beta" value="1"></div>
+                <div class="algo-params__param"><span>Q - константа [1-5]</span><input type="number" name="q" value="4"></div>
+                <div class="algo-params__param"><span>T - испарение феромона [0.01-0.99]</span><input type="number" name="t" value="0.6"></div>
+                <div class="algo-params__param"><span>P - базовое кол-во феромона [0.01-5]</span><input type="number" name="p" value="0.5"></div>
+            </form>
+        </div>
+        <div class="algo-params__instructions">
+            <div class="algo-params__param">Инструкция</div>
+            <div class="algo-params__instructions-text">
+
+                1. Введите параметры алгоритма. <br>
+                2. Нажмите кнопку "Создать" - создастся поле в левой части.
+                    Для удаления поля - нажмите "Очистить".<br>
+                3. Нажмите кнопку "Редактировать" - вы перейдете в
+                    режим редактирования.<br>
+                4. Нажмите кнопку "Начало" - вы перейдете в режим
+                    установления начальной ячейки. С этой ячейки муравьи
+                    начинают путь.<br>
+                    Наведите курсор на ячейку поля и щелкните. На ячейке появится
+                    надпись "А". Начальная ячейка установлена.<br>
+                5. Нажмите кнопку "Конец" - и аналогично установите конечную
+                    ячейку - туда муравьи идут.<br>
+                6. Нажмите кнопку "Стены" (необязательно) - перейдете в режим установки стен.
+                    Щелкните на ячейке и удерживая мышку рисуйте стену. Муравьи не могут проходить
+                    через нее. Так можно имитировать лабиринты<br>
+                7. Нажмите кнопку "Принять" (необязательно) - перейдете в режим чтения. Редактирование
+                    отключится.<br>
+                8. Нажмите кнопку "Запустить".<br>
+                9. В области "Результат" отобразится лучшее найденное решение (лучшее расстояние, лучший путь -
+                посещенные муравьем вершины, лучшая итерация).
+                Если лучший путь не найден, отобразится Infinity (бесконечность).
+                При длительных расчетах (>15с) - выйдет всплывающее окно. Дождитесь
+                результата рассчетов. При верхних значениях параметров рассчет длится <30с. </br>
+                <u>Примечание</u>: в нижней части экрана выводится информация об ошибках. <br>
+            </div>
+        </div>
+        <div class="algo-params__instructions">
+            <div class="algo-params__param">Описание алгоритма</div>
+            <div class="algo-params__instructions-text">
+            Псевдокод:<br>
+                <br>
+            Цикл1 - количество итераций<br>
+                <br>
+            <span>________</span>Цикл2 - количество муравьев<br>
+                <br>
+            <span>________</span>Установить стартовую вершину<br>
+                    <br>
+            <span>________</span>Цикл3 - пока могу идти или не нашел конечную ячейку<br>
+            <span>____________</span>Определить доступные вершины<br>
+            <span>____________</span>Вероятностный переход к доступной вершине<br>
+            <span>____________</span>Обновить феромон на ребре<br>
+            <span>________</span>Цикл3 конец<br>
+                    <br>
+            <span>________</span>Испарить феромоны на всех ребрах<br>
+            <span>________</span>Сохранить лучшее решение<br>
+            <span>________</span>Подготовить следующего муравья<br>
+                    <br>
+            <span>____</span>Цикл2 конец<br>
+                <br>
+            Цикл1 конец<br>
+            <br>
+            Отобразить лучшее решение<br>
+            </div>
+        </div>
+    </div>
+    <div class="algo-container">
+        <div class="algo-view"></div>
+        <div class="algo-control">
+            <div class="creating">
+                <div class="creating__head">Создание</div>
+                <button class="creating-create__button">Создать</button>
+                <button class="creating-clear__button">Очистить</button>
+            </div>
+            <div class="editing">
+                <div class="editing__head">Редактирование</div>
+                <button class="editing-edit__button">Редактировать</button>
+                <button class="editing-set-walls__button">Стены</button>
+                <button class="editing-set-start__button">Начало</button>
+                <button class="editing-set-end__button">Конец</button>
+                <button class="editing-accept__button">Принять</button>
+            </div>
+            <div class="calculating">
+                <div class="calculating__head">Рассчет</div>
+                <button class="calculating-run__button">Запустить</button>
+            </div>
+            <div class="result">
+                <div class="result__head">Результат</div>
+                <div class="result__best-distance">Лучшее расстояние</div>
+                <div class="result__best-way">Итерация лучшего пути</div>
+                <div class="result__best-iteration">Лучшая итерация</div>
+            </div>
+        </div>
+    </div>
+    <div class="comment">
+        <div class="comment__text"></div>
+    </div>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/creating.js"></script>
+    <script src="./js/editing.js"></script>
+    <script src="./js/algo.js"></script>
+
+</body>
+</html>

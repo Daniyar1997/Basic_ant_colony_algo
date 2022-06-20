@@ -1,0 +1,212 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    padding: 10px;
+}
+.algo-head {
+    background-color: rgba(177, 177, 177, 0.523);
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.algo-head__text {
+    font-size: 18pt;
+    font-weight: bold;
+}
+.algo-params {
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    height: auto;
+    background-color: rgba(177, 177, 177, 0.523);
+    margin-bottom: 10px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+.algo-params__algo {
+    background-color: rgba(177, 177, 177, 0.761);
+    border-radius: 10px;
+    padding: 10px;
+}
+.algo-params__param {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.algo-params__param:nth-child(1) {
+    font-size: 12pt;
+    font-weight: 500 ;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.algo-params__param:nth-child(2n) {
+    background-color: rgba(50, 150, 181, 0.598);
+}
+.algo-params__instructions {
+    background-color: rgba(177, 177, 177, 0.761);
+    border-radius: 10px;
+    padding: 10px;
+}
+.algo-params__instructions-text{
+    font-size: 10pt;
+    line-height: 12pt;
+}
+.algo-params__instructions-text span{
+    color: rgba(177, 177, 177, 0.761);
+}
+
+.algo-params input {
+    width: 70px;
+    text-align: center;
+    border: 1px rgba(180, 189, 212, 0) solid;
+    transition: all 0.3s ease-in-out;
+}
+.algo-params input:hover {
+    background-color: rgba(60, 126, 197, 0.523);
+}
+.algo-params input:focus {
+    border: 1px rgba(54, 91, 185, 0.824) solid;
+}
+
+.algo-container {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    background-color: rgba(177, 177, 177, 0.523);
+    margin-bottom: 10px;
+}
+.js-view-container {
+    display: flex;
+}
+.js-view-container__cell {
+    width: 20px;
+    height: 20px;
+    margin: 1px;
+    background-color: rgba(95, 95, 95, 0.523);
+}
+.js-view-container__cell:hover {
+    background-color: rgba(60, 126, 197, 0.523);
+}
+.js-view-container__start-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.js-view-container__end-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.js-view-container__wall-cell {
+    background-color: yellow;
+}
+.js-view-container__way-cell {
+    display: flex;
+    background-color: rgb(47, 188, 73);
+    justify-content: center;
+    align-items: center;
+}
+.algo-view {
+    padding: 10px;
+    height: 100%;
+    width: 70%;
+    background-color: rgba(177, 177, 177, 0.685);
+    margin-right: 10px;
+}
+.algo-control {
+    display: grid;
+    padding: 10px;
+    height: 100%;
+    width: 30%;
+    background-color: rgba(177, 177, 177, 0.685);
+}
+.algo-control button {
+    background-color: rgba(242, 242, 242, 0.994);
+    padding: 5px;
+    margin: 5px;
+    transition: all 0.2s ease-in-out;
+    width: 120px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+.algo-control button:hover {
+    background-color: rgb(56, 152, 56);
+    font-weight: bold;
+    color: white;
+}
+.algo-control button:active {
+    background-color: rgba(19, 222, 39, 0.872);
+    -webkit-box-shadow: 4px 4px 31px 2px rgba(26, 217, 90, 0.4);
+    -moz-box-shadow: 4px 4px 31px 2px rgba(26, 217, 90, 0.4);
+    box-shadow: 4px 4px 31px 2px rgba(26, 217, 90, 0.4);
+}
+.creating{
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px rgba(139, 143, 143, 0.668) solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.editing {
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 1;
+    align-items: center;
+    border: 1px rgba(139, 143, 143, 0.668) solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.calculating{
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px rgba(139, 143, 143, 0.668) solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.result {
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px rgba(139, 143, 143, 0.668) solid;
+    border-radius: 5px;
+}
+.result div {
+    width: 100%;
+    padding: 5px;
+}
+.creating__head, .editing__head, .calculating__head, .result__head{
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.comment{
+    background-color: rgba(177, 177, 177, 0.523);
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comment__text {
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+}
